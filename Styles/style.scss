@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&display=swap');
+$color_one: #103778;
+$color_two: #0593A2;
+$background_color: white;
+
+
+body{
+    display: flex;
+    justify-content: center;
+    background-color: $background_color;
+}
+.container{ 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: "Fanwood Text", serif;
+    margin-top: 30px;
+    width: 1000px;
+}
+.submit-box{
+    margin-top: 50px;
+    display: grid;
+    padding: 20px;
+    border-right: 1px solid $color_one;
+
+    &__input-box{
+        background-color: $background_color;
+        font-size: 20px;
+        border: none;
+        border-bottom: 2px solid $color_one;
+        width: 300px;
+        height: 30px;
+        margin: 12px;
+        text-underline-position: -10px;
+        padding-left: 3px;
+        &:focus{
+            outline: none;
+        }
+    }
+    &__btn{
+        width: 200px;
+        height: 55px;
+        border: none;
+        font-size: 20px;
+        justify-self: center;
+        border-radius: 25px;
+        background-color: $color_two;
+        color: $color_one;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        &:hover{
+            background-color: $color_one;
+            color: $color_two;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+        }
+    }
+    i{
+        color: $color_two;
+        margin-top: -70px;
+        margin-right: 170px;
+        width: 20px;
+        font-size: 25px;
+        align-items: end;
+        justify-self: end;
+        cursor: pointer;
+        &:hover{
+            scale: 1.2;
+        }
+    }
+}
+.books{
+    margin-top: -50px;
+    
+
+    &__header{
+        text-align: center;
+        font-size: 32px;
+        font-style: italic;
+        color: $color_one;
+        margin-bottom: 0px;
+        text-decoration: underline;
+        text-decoration-color: $color_two;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        span{
+            color: $background_color;
+        }
+        
+    }
+    &__container{
+        margin-top: -20px;
+        height: 550px;
+        overflow: auto;
+        
+        &::-webkit-scrollbar{
+            width: 10px;
+        }
+        
+        &::-webkit-scrollbar-thumb{
+            border-radius: 8px;
+            background-color: rgba($color_one,0.3); 
+        }
+        &::-webkit-scrollbar-thumb:hover{
+            border-radius: 8px;
+            background-color: rgba($color_two,0.5);
+        }
+    }
+    
+    &__item{
+        display: grid;
+        list-style: none;
+        grid-template-columns: 100px 300px 50px;
+        padding: 20px;
+        width: 450px;
+        height: 120px;
+        border-top: 1px solid $color_one;
+        border-bottom: 1px solid $color_one;
+        color: $color_one;
+        padding-top: 10px;
+        
+        img{
+            height: 130px;
+        }
+        i{
+            color: $color_two;
+            width: 20px;
+            font-size: 25px;
+            cursor: pointer;
+            align-self: center;
+            margin-top: -20px;
+            &:hover{
+                scale: 1.5;
+                color: $color_one;
+            }
+        }
+        &__title{
+            font-size: 25px;
+            margin: 0;
+        }
+        &__author{
+            margin: 0;
+            font-style: italic;
+        }
+        &__stock{
+            margin: 0;
+            background: $color_two;
+            color: $background_color;
+            font-size: 12px;
+            font-weight: lighter;
+            height: 15px;
+            width: 40px;
+            padding: 1px;
+            padding-left: 5px;
+            border-radius: 10px;
+        }
+        &__price{
+            margin: 0;
+            font-size: 27px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+    }
+
+
+}

@@ -4,8 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book inventory App</title>
+    <link rel="stylesheet" href="Styles/style.css">
+    <script src="https://kit.fontawesome.com/ff14b1909b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <div class="container">
+        <form action="" class="submit-box">
+            <input type="text" class="submit-box__input-box" id="title" placeholder="Title" required>
+            <input type="text" class="submit-box__input-box" id="author" placeholder="Author" required>
+            <input type="text" class="submit-box__input-box" id="image-URL" placeholder="Image URL" required>
+            <input type="text" class="submit-box__input-box" id="price" placeholder="Price" required>
+            <input type="text" class="submit-box__input-box" id="stock" placeholder="In Stock" value="In Stock" readonly>
+            <i class="fa-solid fa-check" id="check"></i>
+            
+            <button class="submit-box__btn">Add Book</button>
+        </form>
+        <section class="books">
+            <div class="books__header">
+                <h1><span>.</span> Booktory<span>.</span></h1>
+            </div>
+            <div class="books__container">
+                <ul>
+                    <li class="books__item">
+                        <img src="https://m.media-amazon.com/images/I/51p+yiLxdfS._SY445_SX342_.jpg">
+                        <div class="books__description">
+                            <h3 class="books__item__title">One Hundred Years of Solitude</h3>
+                            <h4 class="books__item__author">Gabriel Garcia Marquez</h2>
+                            <h6 class="books__item__stock">in stock</h6>
+                            <p class="books__item__price">$99.99</p>
+                        </div>
+                        <i class="fa-solid fa-trash-can"></i>
+                    </li>
+                    <li class="books__item">
+                        <img src="https://pictures.abebooks.com/isbn/9780385504201-us.jpg">
+                        <div class="books__description">
+                            <h3 class="books__item__title">The Da Vinci Code</h3>
+                            <h4 class="books__item__author">Dan Brown</h2>
+                            <h6 class="books__item__stock">in stock</h6>
+                            <p class="books__item__price">$56</p>
+                        </div>
+                        <i class="fa-solid fa-trash-can"></i>
+                    </li>
+                    
+                </ul>
+
+            </div>
+        </section>
+    </div> 
 </body>
 </html>
