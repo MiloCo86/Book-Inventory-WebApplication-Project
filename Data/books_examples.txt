@@ -1,0 +1,24 @@
+title: One Hundred Years of Solitude
+author: Gabriel Garcia Marquez
+url: https://m.media-amazon.com/images/I/51p+yiLxdfS._SY445_SX342_.jpg
+
+title: The Da Vinci Code
+author: Dan Brown
+url: https://pictures.abebooks.com/isbn/9780385504201-us.jpg
+
+
+title: The hobbit
+author: J.R.R. Tolkien
+url: https://m.media-amazon.com/images/I/51B9ZIPwB9L._SY445_SX342_.jpg
+
+
+title: Harry potter and the prisoner of azkaban
+author: J.K. Rowling
+url: 'https://m.media-amazon.com/images/I/61iH2KnUNzL._SY445_SX342_.jpg
+
+
+title: La Vorágine
+author: José Eustasio Rivera
+url: https://m.media-amazon.com/images/I/51+dEhMzr4L.jpg
+
+

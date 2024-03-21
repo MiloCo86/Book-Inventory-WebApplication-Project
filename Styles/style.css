@@ -124,6 +124,7 @@ body {
 }
 .books__item img {
   height: 130px;
+  width: 90px;
 }
 .books__item i {
   color: #8EB2D9;

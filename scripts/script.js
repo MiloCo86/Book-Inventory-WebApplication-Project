@@ -1,8 +1,4 @@
-import {books} from '../Data/bookData.js';
-console.log(books);
-books.new = '22';
-console.log(books);
-
+import {getBooksfromLS , saveBooksToLS} from './localStorageScripts.js';
 
 //in stock text changer
 const stockInputText = document.getElementById('stock');
@@ -34,7 +30,55 @@ const InitialbookItem = document.querySelector('.books__item');
 const bookItem = InitialbookItem.cloneNode(true);
 InitialbookItem.remove();
 
-//importing data from Data file
+/* Storage related variable ands functions*/
+//create an array to save books objects
+let booksList = getBooksfromLS();
+console.log(booksList)
+
+//create a new object with the values of the book
+function saveBook(){
+    const book = {}
+    book.title = formTitleInput.value;
+    book.author = formAuthorInput.value;
+    book.url = formUrlInput.value;
+    book.stock = stockInputText.value;
+    book.price = formPriceInput.value;
+    booksList.push(book);
+    saveBooksToLS(booksList);
+}
+//delete an object from the array base on the title
+function deleteBook(title){
+    booksList = booksList.filter(x => x.title!=title);
+    saveBooksToLS(booksList);
+}
+
+//load data from local Storage
+booksList.forEach(element => {
+    const newBook= bookItem.cloneNode(true);
+    newBook.querySelector('.books__item__title').innerText = element.title;
+    newBook.querySelector('.books__item__author').innerText = element.author;
+    newBook.querySelector('img').src = element.url;
+
+    if(element.stock!='In Stock'){
+        const outOfStockText = newBook.querySelector('.books__item__stock');
+        outOfStockText.innerText = "out of stock";
+        outOfStockText.style.background = '#A52B2B';
+        outOfStockText.style.width = '60px';
+    }
+    const formatPrice = '$' + element.price;
+    newBook.querySelector('.books__item__price').innerText = formatPrice;
+    
+    //Trash Can action
+    const trashIcon = newBook.querySelector('.fa-trash-can');
+
+    trashIcon.addEventListener('click',()=>{
+        deleteBook(trashIcon.parentElement.querySelector('.books__item__title').innerText);
+        trashIcon.parentElement.remove(); 
+    });
+
+    listContainer.appendChild(newBook);
+
+});
 
 
 // function that all a book item base on the input boxes
@@ -54,17 +98,18 @@ function addBook (){
     }
     const formatPrice = '$'+formPriceInput.value;
     newBook.querySelector('.books__item__price').innerText = formatPrice;
-
     
-
     //Trash Can action
     const trashIcon = newBook.querySelector('.fa-trash-can');
 
     trashIcon.addEventListener('click',()=>{
-        trashIcon.parentElement.remove();
+        deleteBook(trashIcon.parentElement.querySelector('.books__item__title').innerText);
+        trashIcon.parentElement.remove(); 
     });
 
     listContainer.appendChild(newBook);
+    saveBook();
+    console.log(booksList);
 
 }
 
@@ -72,9 +117,16 @@ function addBook (){
 const form= document.querySelector('.submit-box');
 const successText = document.querySelector('.success-text');
 
+
+function hiddenSuccessText (){
+    successText.style.visibility = 'hidden';
+}
+
 form.addEventListener('submit',(event)=>{
     event.preventDefault();
     successText.style.visibility = 'visible';
+
+    setTimeout(hiddenSuccessText, 1000);
     
     addBook();
     formTitleInput.value='';
@@ -87,5 +139,5 @@ form.addEventListener('submit',(event)=>{
     stockIcon.classList.add('fa-check')
     stockIcon.style.color= "#3B923B";
 
-    
+
 });
