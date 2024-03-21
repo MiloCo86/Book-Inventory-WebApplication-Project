@@ -6,6 +6,9 @@
     <title>Book inventory App</title>
     <link rel="stylesheet" href="Styles/style.css">
     <script src="https://kit.fontawesome.com/ff14b1909b.js" crossorigin="anonymous"></script>
+    <script type="module" defer src="scripts/script.js"></script>
+    
+    
 </head>
 <body>
     <div class="container">
@@ -16,7 +19,6 @@
             <input type="text" class="submit-box__input-box" id="price" placeholder="Price" required>
             <input type="text" class="submit-box__input-box" id="stock" placeholder="In Stock" value="In Stock" readonly>
             <i class="fa-solid fa-check" id="check"></i>
-            
             <button class="submit-box__btn">Add Book</button>
         </form>
         <section class="books">
@@ -24,7 +26,7 @@
                 <h1><span>.</span> Booktory<span>.</span></h1>
             </div>
             <div class="books__container">
-                <ul>
+                <ul id="list-container">
                     <li class="books__item">
                         <img src="https://m.media-amazon.com/images/I/51p+yiLxdfS._SY445_SX342_.jpg">
                         <div class="books__description">
@@ -33,7 +35,7 @@
                             <h6 class="books__item__stock">in stock</h6>
                             <p class="books__item__price">$99.99</p>
                         </div>
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-trash-can" id="trash-can"></i>
                     </li>
                     <li class="books__item">
                         <img src="https://pictures.abebooks.com/isbn/9780385504201-us.jpg">
@@ -43,13 +45,13 @@
                             <h6 class="books__item__stock">in stock</h6>
                             <p class="books__item__price">$56</p>
                         </div>
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-trash-can" id="trash-can"></i>
                     </li>
-                    
                 </ul>
 
             </div>
         </section>
-    </div> 
+        <p class="success-text">Book added successfully!!!</p>
+    </div>
 </body>
 </html>
