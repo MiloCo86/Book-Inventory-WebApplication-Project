@@ -25,6 +25,16 @@
             <div class="books__header">
                 <h1><span>.</span> Booktory<span>.</span></h1>
             </div>
+            <div class="books__sort-container">
+                <label for="sort-menu"> Sort by:</label>
+                <select name="sort-menu" id="sort-menu" class="books__sort-menu">
+                    <option value="" hidden selected></option>
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                    <option value="stock">Stock</option>
+                    <option value="price">Price</option>
+                </select>
+            </div>
             <div class="books__container">
                 <ul id="list-container">
                     <li class="books__item">
@@ -38,7 +48,6 @@
                         <i class="fa-solid fa-trash-can" id="trash-can"></i>
                     </li>
                 </ul>
-
             </div>
         </section>
         <p class="success-text">Book added successfully!!!</p>

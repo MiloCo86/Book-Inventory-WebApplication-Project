@@ -1,3 +1,7 @@
+title: Coding with JavaScript For Dummies
+author: Chris Minnick & Eva Holland
+url: https://m.media-amazon.com/images/I/81LN6xip6EL._SY466_.jpg
+
 title: One Hundred Years of Solitude
 author: Gabriel Garcia Marquez
 url: https://m.media-amazon.com/images/I/51p+yiLxdfS._SY445_SX342_.jpg
@@ -6,19 +10,35 @@ title: The Da Vinci Code
 author: Dan Brown
 url: https://pictures.abebooks.com/isbn/9780385504201-us.jpg
 
-
 title: The hobbit
 author: J.R.R. Tolkien
 url: https://m.media-amazon.com/images/I/51B9ZIPwB9L._SY445_SX342_.jpg
-
 
 title: Harry potter and the prisoner of azkaban
 author: J.K. Rowling
 url: 'https://m.media-amazon.com/images/I/61iH2KnUNzL._SY445_SX342_.jpg
 
-
 title: La Vorágine
 author: José Eustasio Rivera
 url: https://m.media-amazon.com/images/I/51+dEhMzr4L.jpg
 
+title: A Game of Thrones (A Song of Ice and Fire, Book 1)
+author: George R.R. Martin
+url: https://m.media-amazon.com/images/I/91L90Y-hpxL._SY522_.jpg
+
+title: Little Women
+author: Louisa May Alcott
+url: https://m.media-amazon.com/images/I/71KztWdDVEL._SY522_.jpg
+
+title: A Clash of Kings (A Song of Ice and Fire, Book 2)
+author: George R.R. Martin
+url: https://m.media-amazon.com/images/I/71R9pRtC6AL._SY466_.jpg
+
+title: Hidden Potential: The Science of Achieving Greater Things
+author: Adam Grant
+url: https://m.media-amazon.com/images/I/71BE9mg4xRL._SY466_.jpg
+
+title: 
+author: 
+url: 
 

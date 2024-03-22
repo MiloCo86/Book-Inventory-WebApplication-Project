@@ -49,6 +49,9 @@ body{
         color: $color_one;
         cursor: pointer;
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        transition: color 1s ease-out 100ms;
+        transition: background-color 1s ease-out 100ms;
+        transition: box-shadow 1s ease-out 100ms;
         &:hover{
             background-color: $color_one;
             color: $color_two;
@@ -84,18 +87,35 @@ body{
 }
 .books{
     margin-top: -50px;
-    
+    &__sort-container{
+        display: flex;
+        justify-content: end;
+        margin: 12px;
+        margin-bottom: 30px;
+        gap: 8px;
+        padding-right: 20px;
+        & label{
+            font-size: 20px;
+            font-style: italic;
+        }
+    }
+
+    &__sort-menu{
+        font-size: 18px;
+ 
+    }
 
     &__header{
         text-align: center;
         font-size: 32px;
         font-style: italic;
         color: $color_one;
-        margin-bottom: 0px;
+        margin-bottom: -30px;
         text-decoration: underline;
         text-decoration-color: $color_two;
         text-decoration-thickness: 2px;
         text-underline-offset: 3px;
+
         span{
             color: $background_color;
         }
@@ -144,9 +164,11 @@ body{
             cursor: pointer;
             align-self: center;
             margin-top: -10px;
+            transition: color 1s ease-out 100ms;
+            transition: scale 0.3s ease-out 100ms;
             &:hover{
                 scale: 1.5;
-                color: $color_one;
+                color: $color_one;  
             }
         }
         &__title{
@@ -175,8 +197,5 @@ body{
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
         }
-
     }
-
-
 }

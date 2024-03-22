@@ -24,7 +24,7 @@ const formAuthorInput = document.getElementById('author');
 const formUrlInput = document.getElementById('image-URL');
 const formPriceInput = document.getElementById('price');
 
-//getting a base book elemt and remove it from the web
+//getting a base book element and remove it from the web
 const listContainer = document.getElementById('list-container');
 const InitialbookItem = document.querySelector('.books__item');
 const bookItem = InitialbookItem.cloneNode(true);
@@ -33,7 +33,6 @@ InitialbookItem.remove();
 /* Storage related variable ands functions*/
 //create an array to save books objects
 let booksList = getBooksfromLS();
-console.log(booksList)
 
 //create a new object with the values of the book
 function saveBook(){
@@ -51,44 +50,64 @@ function deleteBook(title){
     booksList = booksList.filter(x => x.title!=title);
     saveBooksToLS(booksList);
 }
+/* -- */
 
 //load data from local Storage
-booksList.forEach(element => {
-    const newBook= bookItem.cloneNode(true);
-    newBook.querySelector('.books__item__title').innerText = element.title;
-    newBook.querySelector('.books__item__author').innerText = element.author;
-    newBook.querySelector('img').src = element.url;
-
-    if(element.stock!='In Stock'){
-        const outOfStockText = newBook.querySelector('.books__item__stock');
-        outOfStockText.innerText = "out of stock";
-        outOfStockText.style.background = '#A52B2B';
-        outOfStockText.style.width = '60px';
-    }
-    const formatPrice = '$' + element.price;
-    newBook.querySelector('.books__item__price').innerText = formatPrice;
+function loadDataToDOM(){
+    booksList.forEach(element => {
+        const newBook= bookItem.cloneNode(true);
+        newBook.querySelector('.books__item__title').innerText = element.title;
+        newBook.querySelector('.books__item__author').innerText = element.author;
+        newBook.querySelector('img').src = element.url;
     
-    //Trash Can action
-    const trashIcon = newBook.querySelector('.fa-trash-can');
-
-    trashIcon.addEventListener('click',()=>{
-        deleteBook(trashIcon.parentElement.querySelector('.books__item__title').innerText);
-        trashIcon.parentElement.remove(); 
+        if(element.stock!='In Stock'){
+            const outOfStockText = newBook.querySelector('.books__item__stock');
+            outOfStockText.innerText = "out of stock";
+            outOfStockText.style.background = '#A52B2B';
+            outOfStockText.style.width = '60px';
+        }
+        const formatPrice = '$' + element.price;
+        newBook.querySelector('.books__item__price').innerText = formatPrice;
+        
+        //Trash Can action
+        const trashIcon = newBook.querySelector('.fa-trash-can');
+    
+        trashIcon.addEventListener('click',()=>{
+            deleteBook(trashIcon.parentElement.querySelector('.books__item__title').innerText);
+            trashIcon.parentElement.remove(); 
+        });
+    
+        listContainer.appendChild(newBook);
+    
     });
+}
+loadDataToDOM();
 
-    listContainer.appendChild(newBook);
+/* Sort function and scripts */
 
-});
+function sortBooks (str){
+    console.log(booksList[0][str]);
+    
+    booksList.sort((a,b)=> a[str].localeCompare(b[str]));
+    console.log(booksList)
+    saveBooksToLS(booksList);
+    listContainer.innerHTML = '';
+    loadDataToDOM();
+}
+
+const sortMenu = document.getElementById('sort-menu');
+sortMenu.addEventListener('change',()=>{
+    sortBooks(sortMenu.value);
+})
 
 
-// function that all a book item base on the input boxes
-function addBook (){
+// function that add a book item with the info of the input boxes
+function appendBook (){
     const newBook= bookItem.cloneNode(true);
 
     newBook.querySelector('.books__item__title').innerText = formTitleInput.value;
     newBook.querySelector('.books__item__author').innerText = formAuthorInput.value;
     newBook.querySelector('img').src = formUrlInput.value;
-
 
     if(stockInputText.value!='In Stock'){
         const outOfStockText = newBook.querySelector('.books__item__stock');
@@ -109,11 +128,9 @@ function addBook (){
 
     listContainer.appendChild(newBook);
     saveBook();
-    console.log(booksList);
-
 }
 
-// action when submit
+/* actions when submit */
 const form= document.querySelector('.submit-box');
 const successText = document.querySelector('.success-text');
 
@@ -126,9 +143,9 @@ form.addEventListener('submit',(event)=>{
     event.preventDefault();
     successText.style.visibility = 'visible';
 
-    setTimeout(hiddenSuccessText, 1000);
+    setTimeout(hiddenSuccessText, 1500);
     
-    addBook();
+    appendBook();
     formTitleInput.value='';
     formAuthorInput.value='';
     formUrlInput.value='';
@@ -138,6 +155,5 @@ form.addEventListener('submit',(event)=>{
     stockIcon.classList.remove('fa-xmark');
     stockIcon.classList.add('fa-check')
     stockIcon.style.color= "#3B923B";
-
 
 });

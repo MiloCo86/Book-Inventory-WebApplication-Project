@@ -10,7 +10,7 @@ function getBooksfromLS (){
 }
 
 function saveBooksToLS (bookData){
-    localStorage.clear()
+    localStorage.clear();
     localStorage.setItem('bookData', JSON.stringify(bookData));
 }
 
