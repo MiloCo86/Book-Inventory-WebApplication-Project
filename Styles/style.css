@@ -97,6 +97,10 @@ body {
 }
 .books__sort-menu {
   font-size: 18px;
+  border: 1px #8EB2D9 solid;
+  border-radius: 10px;
+  font-family: "Fanwood Text", serif;
+  padding-left: 5px;
 }
 .books__header {
   text-align: center;

@@ -86,10 +86,13 @@ loadDataToDOM();
 /* Sort function and scripts */
 
 function sortBooks (str){
-    console.log(booksList[0][str]);
-    
-    booksList.sort((a,b)=> a[str].localeCompare(b[str]));
-    console.log(booksList)
+
+    if(str=='price'){
+        booksList.sort((a,b)=> a[str]- b[str]);
+    }else{
+        booksList.sort((a,b)=> a[str].localeCompare(b[str]));
+    }
+
     saveBooksToLS(booksList);
     listContainer.innerHTML = '';
     loadDataToDOM();
@@ -129,6 +132,19 @@ function appendBook (){
     listContainer.appendChild(newBook);
     saveBook();
 }
+//function that checks correct data from the input fields
+
+function checkInputData(){
+    const price = formPriceInput.value;
+    if(isNaN(price)){
+        successText.innerText = 'Incorrect format for price';
+        successText.style.color = '#A52B2B'
+        successText.style.visibility = 'visible';
+        setTimeout(hiddenSuccessText, 2000);
+        return false;
+    }
+    return true;
+}
 
 /* actions when submit */
 const form= document.querySelector('.submit-box');
@@ -141,19 +157,23 @@ function hiddenSuccessText (){
 
 form.addEventListener('submit',(event)=>{
     event.preventDefault();
-    successText.style.visibility = 'visible';
-
-    setTimeout(hiddenSuccessText, 1500);
     
-    appendBook();
-    formTitleInput.value='';
-    formAuthorInput.value='';
-    formUrlInput.value='';
-    formPriceInput.value='';
+    if(checkInputData()){
+        successText.innerText = 'Book added successfully!!!';
+        successText.style.color = '#3B923B'
+        successText.style.visibility = 'visible';
+        setTimeout(hiddenSuccessText, 2000);
+        
+        appendBook();
+        formTitleInput.value='';
+        formAuthorInput.value='';
+        formUrlInput.value='';
+        formPriceInput.value='';
 
-    stockInputText.value = 'In Stock'
-    stockIcon.classList.remove('fa-xmark');
-    stockIcon.classList.add('fa-check')
-    stockIcon.style.color= "#3B923B";
+        stockInputText.value = 'In Stock'
+        stockIcon.classList.remove('fa-xmark');
+        stockIcon.classList.add('fa-check')
+        stockIcon.style.color= "#3B923B";
+    }   
 
 });
